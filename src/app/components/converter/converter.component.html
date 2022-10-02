@@ -1,0 +1,58 @@
+<div class="container mx-auto max-w-[992px] my-10 px-5 relative flex flex-col">
+  <div class="page__converter converter flex py-5">
+    <form class="flex flex-col flex-1">
+      <mat-form-field class="first__currency flex justify-center">
+        <mat-label>First currency</mat-label>
+        <mat-select [(ngModel)]="firstCurrString" name="first__select" (ngModelChange)="convert()">
+          <mat-option value="UAH">
+            UAH
+          </mat-option>
+          <mat-option *ngFor="let cc of rates" [value]="cc.cc">
+            {{cc.cc}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <input type="number"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        placeholder="Enter first currency..." [(ngModel)]="firstCurrNumber" (ngModelChange)="convert()"
+        name="first__input" [min]="0" />
+    </form>
+
+    <button (click)="swap()" class="mx-4">
+      <svg height="24px" width="24px" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+          <path d="M0 0h24v24H0z"></path>
+          <path d="M6.99 11L3 15l3.99 4v-3H14v-2H6.99v-3zM21 9l-3.99-4v3H10v2h7.01v3L21 9z" fill="#000"
+            fill-rule="nonzero"></path>
+        </g>
+      </svg>
+    </button>
+
+    <form class="flex flex-col flex-1">
+      <mat-form-field class="second__currency">
+        <mat-label>Second currency</mat-label>
+        <mat-select [(ngModel)]="secondCurrString" placeholder="Enter" name="second__select"
+          (ngModelChange)="convert()">
+          <mat-option value="UAH">
+            UAH
+          </mat-option>
+          <mat-option *ngFor="let cc of rates" [value]="cc.cc">
+            {{cc.cc}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <input type="number"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        placeholder="Enter second currency..." [(ngModel)]="secondCurrNumber" (ngModelChange)="secondConvert()"
+        name="second__input" [min]="0" />
+    </form>
+  </div>
+  <div class="btns self-center">
+    <button (click)="firstCurrNumber = 0; secondCurrNumber = 0"
+      class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded h-[40px] max-w-[150px]">
+      Reset
+    </button>
+
+  </div>
+
+</div>
