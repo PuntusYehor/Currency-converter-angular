@@ -47,12 +47,12 @@
         name="second__input" [min]="0" />
     </form>
   </div>
-  <div class="btns self-center">
+  <div class="btns self-center text-center">
+    <p>{{currentRate}}</p>
     <button (click)="firstCurrNumber = 0; secondCurrNumber = 0"
       class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded h-[40px] max-w-[150px]">
       Reset
     </button>
-
   </div>
 
 </div>

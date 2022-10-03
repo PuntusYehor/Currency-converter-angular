@@ -12,6 +12,7 @@ export class ConverterComponent {
   secondCurrNumber: number
   firstCurrString: string = "UAH"
   secondCurrString: string = "UAH"
+  currentRate: string = ""
 
   convert(): void {
     let arr = this.rates
@@ -22,6 +23,7 @@ export class ConverterComponent {
 
     if(c1 && c2) {
       this.secondCurrNumber = +(this.firstCurrNumber * c1.rate / c2.rate).toFixed(2);
+      this.currentRate = `1 ${c1.cc} = ${(1 * c1.rate / c2.rate).toFixed(4)} ${c2.cc}`;
     }
   }
 
@@ -34,6 +36,7 @@ export class ConverterComponent {
 
     if(c1 && c2) {
       this.firstCurrNumber = +(this.secondCurrNumber * c2.rate / c1.rate).toFixed(2);
+      this.currentRate = `1 ${c1.cc} = ${(1 * c1.rate / c2.rate).toFixed(4)} ${c2.cc}`;
     }
   }
 

@@ -10,6 +10,7 @@ import { RatesService } from './services/rates.service';
 
 export class AppComponent implements OnInit{
   rates: IRate[] = []
+  headerRates: IRate[] = []
   loading = false
 
   constructor(private ratesService: RatesService) {}
@@ -17,9 +18,9 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
     this.loading = true
     this.ratesService.getAll().subscribe(rates => {
-      this.rates = rates.filter(rate => rate.cc === "USD" || rate.cc === "EUR")
+      this.headerRates = rates.filter(rate => rate.cc === "USD" || rate.cc === "EUR")
+      this.rates = rates
       this.loading = false
     })
   }
-
 }

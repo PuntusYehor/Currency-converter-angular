@@ -3,11 +3,11 @@
     <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
       <div class="relative flex h-16 items-center justify-between">
         <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-center">
-          <div class="flex space-x-4">
+          <div class="flex space-x-4 flex-wrap">
             <p class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">
               Current
               Exchange Rates:</p>
-            <p class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" *ngFor="let rate of rates">
+            <p class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" *ngFor="let rate of headerRates">
               {{rate.cc}}: {{rate.rate | currency: rate.cc}}</p>
             <p class="text-center text-white text-lg p-2" *ngIf="loading">Loading...</p>
           </div>
