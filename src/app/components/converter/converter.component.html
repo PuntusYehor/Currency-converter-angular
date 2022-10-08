@@ -6,7 +6,7 @@
         <mat-form-field class="first__currency flex justify-center">
           <mat-label>First currency</mat-label>
           <mat-select name="first__select" (selectionChange)="fillCurr(); firstConvert()"
-            formControlName="firstCurrString">
+            formControlName="firstCurrName">
             <mat-option value="UAH">
               UAH
             </mat-option>
@@ -17,7 +17,7 @@
         </mat-form-field>
         <input type="number"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-          placeholder="Enter first currency..." formControlName="firstCurrNumber" (input)="fillCurr(); firstConvert()"
+          placeholder="Enter first currency..." formControlName="firstCurrValue" (input)="fillCurr(); firstConvert()"
           name="first__input" [min]="0" />
       </div>
 
@@ -35,7 +35,7 @@
         <mat-form-field class="second__currency">
           <mat-label>Second currency</mat-label>
           <mat-select placeholder="Enter" name="second__select" (selectionChange)="fillCurr(); secondConvert()"
-            formControlName="secondCurrString">
+            formControlName="secondCurrName">
             <mat-option value="UAH">
               UAH
             </mat-option>
@@ -46,8 +46,8 @@
         </mat-form-field>
         <input type="number"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-          placeholder="Enter second currency..." (input)="fillCurr(); secondConvert()"
-          formControlName="secondCurrNumber" name="second__input" [min]="0" />
+          placeholder="Enter second currency..." (input)="fillCurr(); secondConvert()" formControlName="secondCurrValue"
+          name="second__input" [min]="0" />
 
       </div>
     </form>
